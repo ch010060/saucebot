@@ -47,6 +47,14 @@ class Sauce(commands.Cog):
     @commands.command(aliases=['source'])
     @commands.cooldown(server_api_limit or 10000, 86400, commands.BucketType.guild)
     async def sauce(self, ctx: commands.Context, url: typing.Optional[str] = None) -> None:
+
+        # Check channel id and message author at first
+        author_id = ctx.message.author.id
+        channel_id = ctx.channel.id
+        target_channel_id = config.get('Discord', 'channel_id', fallback=None)
+        if str(channel_id) != target_channel_id or author_id == bot.user.id:
+            return
+
         """
         Get the source of the attached image, the image in the message you replied to, the specified image URL,
         or the last image uploaded to the channel if none of these are supplied
