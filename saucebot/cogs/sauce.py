@@ -52,7 +52,7 @@ class Sauce(commands.Cog):
         author_id = ctx.message.author.id
         channel_id = ctx.channel.id
         target_channel_id = config.get('Discord', 'channel_id', fallback=None)
-        if str(channel_id) != target_channel_id or author_id == bot.user.id:
+        if str(channel_id) not in target_channel_id or author_id == bot.user.id:
             return
 
         """
