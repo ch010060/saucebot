@@ -358,6 +358,8 @@ class Sauce(commands.Cog):
         embed.set_footer(text=lang('Sauce', 'found', member=ctx.author), icon_url=saucebot.assets.ICON_FOOTER)
         embed.title = sauce.title or sauce.author_name or "Untitled"
         embed.url = sauce.url
+        if embed.url and "illust_id" in embed.url:
+            embed.url = embed.url.replace("member_illust.php?mode=medium&illust_id=","artworks/")
         embed.description = lang('Sauce', 'match_title', {'index': sauce.index, 'similarity': sauce.similarity})
 
         # For low similarity results, tweak our response a bit
