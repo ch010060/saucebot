@@ -193,7 +193,7 @@ class Sauce(commands.Cog):
                 avatar=saucebot.assets.AVATAR_THINKING
             )
 
-            google_url  = f"https://www.google.com/searchbyimage?image_url={url}&safe=off"
+            google_url  = f"https://www.google.com/searchbyimage?sbisrc=4chanx&image_url={url}&safe=off"
             ascii_url   = f"https://ascii2d.net/search/url/{url}"
             yandex_url  = f"https://yandex.com/images/search?url={url}&rpt=imageview"
 
