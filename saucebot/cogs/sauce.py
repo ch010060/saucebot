@@ -196,11 +196,13 @@ class Sauce(commands.Cog):
             google_url  = f"https://www.google.com/searchbyimage?sbisrc=4chanx&image_url={url}&safe=off"
             ascii_url   = f"https://ascii2d.net/search/url/{url}"
             yandex_url  = f"https://yandex.com/images/search?url={url}&rpt=imageview"
+            iqdb_url    = f"https://iqdb.org/?url={url}"
 
             urls = [
                 (lang('Sauce', 'google'), google_url),
                 (lang('Sauce', 'ascii2d'), ascii_url),
-                (lang('Sauce', 'yandex'), yandex_url)
+                (lang('Sauce', 'yandex'), yandex_url),
+                (lang('Sauce', 'iqdb'), iqdb_url)
             ]
             urls = ' • '.join([f"[{t}]({u})" for t, u in urls])
 
