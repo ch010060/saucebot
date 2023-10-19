@@ -388,6 +388,11 @@ class Sauce(commands.Cog):
             if sauce.anilist_url:
                 urls.append((lang('Sauce', 'anilist'), sauce.anilist_url))
 
+            # Lastly, if all else fails, search for the last message in the channel with an image upload
+            ctx_url = await self._get_last_image_post(ctx)
+            google_url  = f"https://www.google.com/searchbyimage?sbisrc=4chanx&image_url={ctx_url}&safe=off"
+            urls.append((lang('Sauce', 'google'), google_url))
+
             urls = ' • '.join([f"[{t}]({u})" for t, u in urls])
             embed.add_field(name=lang('Sauce', 'more_info'), value=urls, inline=False)
 
