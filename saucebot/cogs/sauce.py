@@ -274,10 +274,10 @@ class Sauce(commands.Cog):
         if not attachment.url:
             return None
 
-        if attachment.url and str(attachment.url).endswith(('.jpg', '.png', '.gif', '.jpeg', '.webp')):
+        if attachment.url and attachment.content_type.startswith("image"):
             return attachment.url
 
-        if attachment.url and str(attachment.url).endswith(('.mp4', '.webm', '.mov')):
+        if attachment.url and attachment.content_type.startswith("video"):
             return attachment.proxy_url + '?format=jpeg'
 
     async def _index_prompt(self, ctx: commands.Context, channel: discord.TextChannel, items: list):
